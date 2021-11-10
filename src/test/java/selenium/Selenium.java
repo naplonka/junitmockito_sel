@@ -1,13 +1,10 @@
 package selenium;
 
 import org.junit.Test;
-import org.junit.jupiter.params.ParameterizedTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.ie.InternetExplorerOptions;
 
 public class Selenium {
     WebDriver driver;
