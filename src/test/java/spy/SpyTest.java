@@ -1,5 +1,7 @@
 package spy;
 
+import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -29,6 +31,7 @@ public class SpyTest {// spy pozwala skorzystać z implementacji danej funkcji
         assertEquals(1, arrayListSpy.size());
     }
 
+    @Disabled
     @Test
     public void testSpyVerifyMock() {
         List arrayListSpy = mock(ArrayList.class);

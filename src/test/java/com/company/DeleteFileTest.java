@@ -1,11 +1,13 @@
 package com.company;
 
+import org.junit.Ignore;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Disabled;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,6 +27,7 @@ class DeleteFileTest {
     }
 
     @Test
+    @Disabled
     @DisplayName("delete file")
     void deletedFile() throws IOException {
         String directory = "C:\\Users\\natalia.rychlowska\\Desktop\\airbus\\aplikacja\\junitmockito\\src\\main\\sourcee";
@@ -39,6 +42,7 @@ class DeleteFileTest {
         //Thanks assertAll when one from assertion failed the rest assertion are still executed
     }
 
+    @Disabled
     @Test
     @Tag("dev")
     @DisplayName("throw exception when there is no directory")
@@ -56,6 +60,7 @@ class DeleteFileTest {
     }
 
     @Test
+    @Disabled
     void testDeleteNotThrowsException() {
         //Executable oznacza że trzeba użyć lambda
         assertDoesNotThrow(() -> {

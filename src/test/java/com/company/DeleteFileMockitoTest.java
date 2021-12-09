@@ -1,5 +1,6 @@
 package com.company;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
@@ -20,6 +21,7 @@ public class DeleteFileMockitoTest {
     private String file = "C:\\Users\\natalia.rychlowska\\Desktop\\airbus\\aplikacja\\junitmockito\\src\\main\\sourcee";
 
     @Test
+    @Disabled
     public void DeleteFileTest() {
 
         mockedDirectoryToDelete.mkdir();
@@ -34,6 +36,7 @@ public class DeleteFileMockitoTest {
     }
 
     @Test
+    @Disabled
     public void DeleteFileTestMockException() {
 
         mockedDirectoryToDelete.mkdir();
@@ -54,6 +57,7 @@ public class DeleteFileMockitoTest {
     }
 
     @Test
+    @Disabled
     public void DeleteFileTestDoThrown() {
 
         mockedDirectoryToDelete.mkdir();
