@@ -13,7 +13,7 @@ pipeline {
 
 			stage("Build Java") {
                 when {
-                    expresssion {
+                    expression {
                         BRANCH_NAME == 'dev' && CODE_CHANGES == true
                     }
 			
@@ -25,7 +25,7 @@ pipeline {
 
 			stage("Test Java") {
                 when {
-                    expresssion {
+                    expression {
                         BRANCH_NAME == 'dev'
                     }
                 }
