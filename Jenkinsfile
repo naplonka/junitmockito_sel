@@ -1,4 +1,5 @@
 pomLocation = "pom.xml"
+currentVersion
 pipeline {
 
     agent any
@@ -7,7 +8,11 @@ pipeline {
 			stage("Set POM version") {
 			    steps {
 			        sh 'echo "*********** Set POM version stage *****************"'
-                    bat "C:\\engapps\\apache-maven-3.8.1\\bin\\mvn -f ${pomLocation} versions:set -DnewVersion=${newVersion}"
+					checkout scm
+					currentVersion = readMavenPom file: "${pomLocation}"
+                			newVersion = bumpBuildNumber(currentVersion.version)
+					currentBuild.displayName = "${newVersion}"
+                    			bat "C:\\engapps\\apache-maven-3.8.1\\bin\\mvn -f ${pomLocation} versions:set -DnewVersion=${newVersion}"
 			}
 		}
 
@@ -18,14 +23,8 @@ pipeline {
 		}
 
 			stage("Test Java") {
-                when {
-                    expression {
-                        BRANCH_NAME == 'dev'
-                    }
-                }
-			    
-			    steps{
-			        bat "mvn -f ${pomLocation} test"
+                steps {
+			        bat "mvn -f ${pomLocation} test -Dtest=!e2e/**"
                     unit allowEmptyResults: true, testResults: '**/TEST-*.xml'
 			}		
 		}
