@@ -9,9 +9,9 @@ pipeline {
 			    steps {
 			        sh 'echo "*********** Set POM version stage *****************"'
 					checkout scm
-                	newVersion = bumpBuildNumber(${POM_VERSION})
+                			newVersion = bumpBuildNumber("${POM_VERSION}")
 					currentBuild.displayName = "${newVersion}"
-                    bat "C:\\engapps\\apache-maven-3.8.1\\bin\\mvn -f ${pomLocation} versions:set -DnewVersion=${newVersion}"
+                    			bat "C:\\engapps\\apache-maven-3.8.1\\bin\\mvn -f ${pomLocation} versions:set -DnewVersion=${newVersion}"
 			}
 		}
 
