@@ -1,4 +1,4 @@
-CODE_CHANGES
+pomLocation = "pom.xml"
 pipeline {
 
     agent any
@@ -12,12 +12,6 @@ pipeline {
 		}
 
 			stage("Build Java") {
-                when {
-                    expression {
-                        BRANCH_NAME == 'dev' && CODE_CHANGES == true
-                    }
-			
-			}
 			    steps {
 			        bat "C:\\engapps\\apache-maven-3.8.1\\bin\\mvn -f ${pomLocation} clean package -DskipTests"
 			}
