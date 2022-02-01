@@ -4,7 +4,7 @@ pipeline {
 
     agent any
 	tools {
-		maven "maven"
+		maven "jenkins-maven"
 		jdk "jdk_9.0.4"
 	}
 
