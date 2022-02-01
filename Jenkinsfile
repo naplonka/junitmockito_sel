@@ -1,5 +1,5 @@
 pomLocation = "pom.xml"
-currentVersion
+POM_VERSION
 pipeline {
 
     agent any
@@ -9,10 +9,9 @@ pipeline {
 			    steps {
 			        sh 'echo "*********** Set POM version stage *****************"'
 					checkout scm
-					currentVersion = readMavenPom file: "${pomLocation}"
-                			newVersion = bumpBuildNumber(currentVersion.version)
+                	newVersion = bumpBuildNumber(${POM_VERSION})
 					currentBuild.displayName = "${newVersion}"
-                    			bat "C:\\engapps\\apache-maven-3.8.1\\bin\\mvn -f ${pomLocation} versions:set -DnewVersion=${newVersion}"
+                    bat "C:\\engapps\\apache-maven-3.8.1\\bin\\mvn -f ${pomLocation} versions:set -DnewVersion=${newVersion}"
 			}
 		}
 
