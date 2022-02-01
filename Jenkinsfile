@@ -1,5 +1,4 @@
 pomLocation = "pom.xml"
-POM_VERSION
 pipeline {
 
     agent any
